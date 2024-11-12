@@ -1,0 +1,50 @@
+{
+    "items": [
+      {
+        "isFavourite": false,
+        "isNew": 0,
+        "image": "image1.jpg",
+        "price": 9.99,
+        "rate": 4,
+        "pieces": 1,
+        "isSpicy": false
+      },
+      {
+        "isFavourite": true,
+        "isNew": 1,
+        "image": "image2.jpg",
+        "price": 14.99,
+        "rate": 5,
+        "pieces": 2,
+        "isSpicy": true
+      },
+      {
+        "isFavourite": false,
+        "isNew": 0,
+        "image": "image3.jpg",
+        "price": 7.99,
+        "rate": 3,
+        "pieces": 3,
+        "isSpicy": false
+      },
+      {
+        "isFavourite": true,
+        "isNew": 1,
+        "image": "image4.jpg",
+        "price": 11.99,
+        "rate": 4,
+        "pieces": 4,
+        "isSpicy": true
+      },
+      {
+        "isFavourite": false,
+        "isNew": 0,
+        "image": "image5.jpg",
+        "price": 5.99,
+        "rate": 2,
+        "pieces": 1,
+        "isSpicy": false
+      }
+    ]
+  }
+  

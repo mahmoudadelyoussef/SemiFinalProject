@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "title": "Seared Tuna with Mango Salsa",
+      "isFavourite": false,
+      "isNew": 0,
+      "image": "./assets/images/burger.jpeg",
+      "price": 9.99,
+      "rate": 4,
+      "pieces": 1,
+      "isSpicy": false,
+      "isAddedToCart":0
+    },
+    {
+      "title": "Beef Tenderloin with Mushroom Sauce",
+      "isFavourite": true,
+      "isNew": 1,
+      "image": "./assets/images/burger.jpeg",
+      "price": 14.99,
+      "rate": 5,
+      "pieces": 2,
+      "isSpicy": true,
+      "isAddedToCart":1
+      
+    },
+    {
+      "title": "Lamb Chops with Minted Yogurt",
+      "isFavourite": false,
+      "isNew": 0,
+      "image": "./assets/images/burger.jpeg",
+      "price": 7.99,
+      "rate": 3,
+      "pieces": 3,
+      "isSpicy": false,
+      "isAddedToCart":0
+    },
+    {
+      "title": "Roast Chicken with Garlic Herb Butter",
+      "isFavourite": true,
+      "isNew": 0,
+      "image": "./assets/images/burger.jpeg",
+      "price": 11.99,
+      "rate": 4,
+      "pieces": 4,
+      "isSpicy": true,
+      "isAddedToCart":0
+    },
+    {
+      "title": "Grilled Salmon with Lemon Dill Sauce",
+      "isFavourite": false,
+      "isNew": 0,
+      "image": "./assets/images/burger.jpeg",
+      "price": 5.99,
+      "rate": 2,
+      "pieces": 1,
+      "isSpicy": false,
+      "isAddedToCart":0
+    }
+  ]
+}
