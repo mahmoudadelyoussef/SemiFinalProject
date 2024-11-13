@@ -147,6 +147,4 @@ function addToCart(itemId) {
 //         }
 //     }, 100);  
 
-// function stopScrolling() {
-//     clearInterval(scrollInterval);
-// }
+ 
