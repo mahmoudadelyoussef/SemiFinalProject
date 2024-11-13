@@ -8,7 +8,6 @@ myList.forEach((ele) => {
         clostBtn.click();
     }
 })
-
 const myIcon = document.querySelector(".desktop i");
 myIcon.onclick = () => {
     document.querySelector("ul").classList.toggle("visibiltyCls");
@@ -28,31 +27,31 @@ function removeActive() {
 }
 
 
-function scrollCardsRight() {
-    document.querySelector(".leftArrowDiv").classList.remove("arrowDivClick")
-    document.querySelector(".RightArrowDiv").classList.add("arrowDivClick")
-    document.querySelector('.burgersCards').scrollBy({
-        left: 300,
-        behavior: 'smooth'
-    });
-}
-function scrollCardsLeft() {
-    document.querySelector(".RightArrowDiv").classList.remove("arrowDivClick")
-    document.querySelector(".leftArrowDiv").classList.add("arrowDivClick")
-    document.querySelector('.burgersCards').scrollBy({
-        left: -300,
-        behavior: 'smooth'
-    });
-}
-
-
-fetch("http://localhost:3000/items").then(response => {
+// function scrollCardsRight() {
+//     document.querySelector(".leftArrowDiv").classList.remove("arrowDivClick")
+//     document.querySelector(".RightArrowDiv").classList.add("arrowDivClick")
+//     document.querySelector('.burgersCards').scrollBy({
+//         left: 300,
+//         behavior: 'smooth'
+//     });
+// }
+// function scrollCardsLeft() {
+//     document.querySelector(".RightArrowDiv").classList.remove("arrowDivClick")
+//     document.querySelector(".leftArrowDiv").classList.add("arrowDivClick")
+//     document.querySelector('.burgersCards').scrollBy({
+//         left: -300,
+//         behavior: 'smooth'
+//     });
+// }
+let burgersObject=undefined;
+function fetchData(){
+    fetch("http://localhost:3000/items").then(response => {
     if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
     }
     return response.json();
 }).then(data => {
-    const burgersObject = data;
+    burgersObject = data;
     burgersObject.forEach((element) => {
 
         let favStyle = `${element.isFavourite ? 'style="background-color: white;"':'style="display: none;"'} `;
@@ -94,12 +93,49 @@ fetch("http://localhost:3000/items").then(response => {
                         </div>
                     </div>
                     <div>
-                        <button class="AddFavBtn" ${isAddedToCart}>Add To Cart</button>
+                         
+                        <button class="AddFavBtn"${isAddedToCart} onclick="addToCart(${element.id})">Add To Cart</button>
+
                     </div>
                 </div>
         `
     })
 }).catch(error => { console.error("Fetch error: ", error); });
+}
+
+fetchData();
+
+function addToCart(itemId) {
+    fetch(`http://localhost:3000/items/${itemId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ isAddedToCart: 1 })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to update item in cart');
+      }
+      return response.json();
+    })
+    .then(data => {
+        document.querySelector(".burgersCards").innerHTML=''
+        fetchData();
+
+        const cartCount = burgersObject.filter(item => item.isAddedToCart === 1).length;
+
+        // Update the cart counter element
+        document.querySelector(".cart-counter").textContent = cartCount;
+
+
+      console.log('Item added to cart:', data);
+      // Optionally update UI to reflect the change
+    })
+    .catch(error => console.error('Error:', error));
+  }
+  
+  
 // let scrollInterval;
 
 // function startScrolling(direction) {

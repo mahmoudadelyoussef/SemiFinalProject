@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": 1,
       "title": "Seared Tuna with Mango Salsa",
       "isFavourite": false,
       "isNew": 0,
@@ -9,9 +10,10 @@
       "rate": 4,
       "pieces": 1,
       "isSpicy": false,
-      "isAddedToCart":0
+      "isAddedToCart": 0
     },
     {
+      "id": 2,
       "title": "Beef Tenderloin with Mushroom Sauce",
       "isFavourite": true,
       "isNew": 1,
@@ -20,10 +22,10 @@
       "rate": 5,
       "pieces": 2,
       "isSpicy": true,
-      "isAddedToCart":1
-      
+      "isAddedToCart": 0
     },
     {
+      "id": 3,
       "title": "Lamb Chops with Minted Yogurt",
       "isFavourite": false,
       "isNew": 0,
@@ -32,9 +34,10 @@
       "rate": 3,
       "pieces": 3,
       "isSpicy": false,
-      "isAddedToCart":0
+      "isAddedToCart": 0
     },
     {
+      "id": 4,
       "title": "Roast Chicken with Garlic Herb Butter",
       "isFavourite": true,
       "isNew": 0,
@@ -43,9 +46,10 @@
       "rate": 4,
       "pieces": 4,
       "isSpicy": true,
-      "isAddedToCart":0
+      "isAddedToCart": 0
     },
     {
+      "id": 5,
       "title": "Grilled Salmon with Lemon Dill Sauce",
       "isFavourite": false,
       "isNew": 0,
@@ -54,7 +58,7 @@
       "rate": 2,
       "pieces": 1,
       "isSpicy": false,
-      "isAddedToCart":0
+      "isAddedToCart": 0
     }
   ]
 }
