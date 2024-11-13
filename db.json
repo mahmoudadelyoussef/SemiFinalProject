@@ -10,7 +10,7 @@
       "rate": 4,
       "pieces": 1,
       "isSpicy": false,
-      "isAddedToCart": 0
+      "isAddedToCart": 1
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "rate": 5,
       "pieces": 2,
       "isSpicy": true,
-      "isAddedToCart": 0
+      "isAddedToCart": 1
     },
     {
       "id": 3,

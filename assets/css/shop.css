@@ -116,7 +116,7 @@ nav ul li:hover {
 }
 
 .bigContainer{
-    background-image: url(../images/burger.jpeg);
+    background-image: url(../images/meatbla.jpeg);
     background-repeat: no-repeat;
     object-fit: cover;
     /* background-position: center; */
@@ -202,7 +202,38 @@ nav ul li:hover {
     padding: 1em;
     background-color: red;
 } 
+.shopTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    color: white;
+}
  
+.titleSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+.titleSection p{
+    color: white;
+}
+.titleSection p:nth-child(1){
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.titleSection p:nth-child(2){
+    font-family: 'Fibre Vintage', sans-serif !important;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+
 /* ------------------------------------------------------------------------------------------- */
 
 @media (max-width:1024px) {
