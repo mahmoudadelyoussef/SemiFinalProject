@@ -43,6 +43,7 @@ function removeActive() {
 //         behavior: 'smooth'
 //     });
 // }
+localStorage.removeItem("CartItems")
 let burgersObject = undefined;
 function fetchData() {
     fetch("http://localhost:3000/items").then(response => {
@@ -116,6 +117,15 @@ function addToCart(itemId) {
      const cartCount = burgersObject.filter(item => item.isAddedToCart === 1).length;
 
     document.querySelector(".cart-counter").textContent = cartCount;
+    let localData = localStorage.getItem("CartItems");
+    if(localData == null){
+        localData =  [ burgersObject[itemId-1] ]
+    }else{
+        localData = JSON.parse(localData);
+        localData.push(burgersObject[itemId-1])
+    }
+    
+    localStorage.setItem("CartItems",JSON.stringify(localData))
 }
 
 // let scrollInterval;
