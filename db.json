@@ -11,7 +11,7 @@
       "rate": 4,
       "pieces": 1,
       "isSpicy": false,
-      "isAddedToCart": 1
+      "isAddedToCart": 0
     },
     {
       "key": "veg",
@@ -24,7 +24,7 @@
       "rate": 5,
       "pieces": 2,
       "isSpicy": true,
-      "isAddedToCart": 1
+      "isAddedToCart": 0
     },
     {
       "key": "meal",

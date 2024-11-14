@@ -57,19 +57,18 @@ nav {
     /* font-size: 24px; Adjust icon size */
   }
   
-  .cart-icon::after {
-    content: "3"; /* Set this to the counter number */
+  /* .cart-icon::after {
+    content: "3";  
     position: absolute;
-    top: -8px; /* Adjust position to align the badge */
+    top: -8px;  
     right: -10px;
     background-color: red;
     color: white;
-    /* font-size: 12px; */
-    padding: 2px 6px;
+     padding: 2px 6px;
     border-radius: 50%;
     font-weight: bold;
     line-height: 1;
-  }
+  } */
   
 h1 img {
     width: 71px;

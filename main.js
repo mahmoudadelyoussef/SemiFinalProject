@@ -1,4 +1,4 @@
- 
+
 const myList = document.body.querySelectorAll("ul li")
 const clostBtn = document.querySelector(".closeListIndex");
 myList.forEach((ele) => {
@@ -43,21 +43,21 @@ function removeActive() {
 //         behavior: 'smooth'
 //     });
 // }
-let burgersObject=undefined;
-function fetchData(){
+let burgersObject = undefined;
+function fetchData() {
     fetch("http://localhost:3000/items").then(response => {
-    if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-    }
-    return response.json();
-}).then(data => {
-    burgersObject = data;
-    burgersObject.forEach((element) => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+        }
+        return response.json();
+    }).then(data => {
+        burgersObject = data;
+        burgersObject.forEach((element) => {
 
-        let favStyle = `${element.isFavourite ? 'style="background-color: white;"':'style="display: none;"'} `;
-        let isAddedToCart = `${element.isAddedToCart ? 'style="pointer-events:none;opacity:0.5" ' : ''}`
+            let favStyle = `${element.isFavourite ? 'style="background-color: white;"' : 'style="display: none;"'} `;
+            let isAddedToCart = `${element.isAddedToCart ? 'style="pointer-events:none;opacity:0.5" ' : ''}`
 
-        document.querySelector(".burgersCards").innerHTML += `
+            document.querySelector(".burgersCards").innerHTML += `
                     <div class="burgerCard">
 
                     <div class="burgerImageContainer">
@@ -89,53 +89,35 @@ function fetchData(){
                         </div>
                         <div class="sandwitchDeatils">
                             <i class="fa-regular fa-circle-check"></i>
-                            <p for="">${element.isSpicy  ?  'Spicy Sauce' : 'Regular Sauce'}</p>
+                            <p for="">${element.isSpicy ? 'Spicy Sauce' : 'Regular Sauce'}</p>
                         </div>
                     </div>
                     <div>
                          
-                        <button class="AddFavBtn"${isAddedToCart} onclick="addToCart(${element.id})">Add To Cart</button>
+                        <button id='${element.id}' class="AddFavBtn"${isAddedToCart} onclick="addToCart(${element.id})">Add To Cart</button>
 
                     </div>
                 </div>
         `
-    })
-}).catch(error => { console.error("Fetch error: ", error); });
+        })
+
+        document.querySelector(".cart-counter").textContent = burgersObject.filter(item => item.isAddedToCart === 1).length;;
+
+    }).catch(error => { console.error("Fetch error: ", error); });
 }
 
 fetchData();
 
 function addToCart(itemId) {
-    fetch(`http://localhost:3000/items/${itemId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ isAddedToCart: 1 })
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to update item in cart');
-      }
-      return response.json();
-    })
-    .then(data => {
-        document.querySelector(".burgersCards").innerHTML=''
-        fetchData();
+    burgersObject[itemId-1].isAddedToCart = 1;
 
-        const cartCount = burgersObject.filter(item => item.isAddedToCart === 1).length;
+    document.getElementById(itemId).style.pointerEvents = "none";
+    document.getElementById(itemId).style.opacity = "0.5";
+     const cartCount = burgersObject.filter(item => item.isAddedToCart === 1).length;
 
-        // Update the cart counter element
-        document.querySelector(".cart-counter").textContent = cartCount;
+    document.querySelector(".cart-counter").textContent = cartCount;
+}
 
-
-      console.log('Item added to cart:', data);
-      // Optionally update UI to reflect the change
-    })
-    .catch(error => console.error('Error:', error));
-  }
-  
-  
 // let scrollInterval;
 
 // function startScrolling(direction) {
