@@ -1,8 +1,10 @@
 const PORT = 'http://localhost:3000'
 
 const catCls = document.querySelector(".catCls");
+const titleSection = document.querySelector(".titleSection");
 const burgersCards = document.querySelector(".burgersCards");
-
+const burgersSection = document.querySelector(".burgersSection");
+const frame18 = document.querySelector(".frame18");
 async function getCat(myData) {
 
     if (sessionStorage.getItem("CatResults") == null) {
@@ -94,7 +96,28 @@ function getCatData(id) {
     changedResult.forEach((ele) => {
         ele.isActive = 0
     })
-    changedResult[id-1].isActive = 1
+    changedResult[id - 1].isActive = 1
     sessionStorage.setItem("CatResults", JSON.stringify(changedResult))
     getCat()
+}
+
+function showCart() {
+    //titleSection not ready
+    //catCls ready
+    const titleTxt = document.querySelector(".shopTitle p");
+    if (titleTxt.innerText == 'Home - Shop') {
+        titleTxt.innerText = 'Home - cart'
+        titleSection.style.display = "none"
+        catCls.style.display = "none"
+        burgersSection.style.display = "none"
+       
+              frame18.style.display = "flex"
+    } else {
+        titleTxt.innerText = 'Home - Shop'
+        titleSection.style.display = "flex"
+        catCls.style.display = "flex"
+        burgersSection.style.display = "flex"
+   frame18.style.display = "none"
+    }
+
 }

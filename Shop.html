@@ -1,116 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/shop.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/shop.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <main>
-        <div class="bigContainer">
-            <nav>
-                <h1>
-                    <img src="./assets/images/logo.png" alt="">
-                </h1>
-                <ul>
-                    <li>
-                        <a href="./Index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="./About.html">ABOUT</a>
-                    </li>
-                    <li>
-                        <a  class="active"  href="./Shop.html">SHOP</a>
-                    </li>
-                    <li>
-                        <a href="./Contact.html">CONTACT US</a>
-                    </li>
-                </ul>
-                <span class="desktop">
-                    <i class="fa-solid fa-bars"></i>
-                </span>
-                <div class="icons-navBar">
-                    <i class="fa-solid fa-heart"></i>
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <div class="closeList closeListIndex">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </nav>
-            <div class="shopTitle">
-                <p>Home - Shop</p>
-
-            </div>
+      <div class="bigContainer">
+        <nav>
+          <h1>
+            <img src="./assets/images/logo.png" alt="" />
+          </h1>
+          <ul>
+            <li>
+              <a href="./Index.html">Home</a>
+            </li>
+            <li>
+              <a href="./Shop.html">ABOUT</a>
+            </li>
+            <li>
+              <a class="active" href="./Shop.html">SHOP</a>
+            </li>
+            <li>
+              <a href="./Contact.html">CONTACT US</a>
+            </li>
+          </ul>
+          <span class="desktop">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <div class="icons-navBar">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping" onclick="showCart()"></i>
+          </div>
+          <div class="closeList closeListIndex">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </nav>
+        <div class="shopTitle">
+          <p>Home - Shop</p>
         </div>
+      </div>
 
-        <section class="titleSection">
-           
-                <p>Shop by category</p>
-                <p>Shop by category</p>
-            
-        </section>
+      <section class="titleSection">
+        <p>Shop by category</p>
+        <p>Shop by category</p>
+      </section>
 
-        <section class="catCls">
-        
-        </section>
+      <section class="catCls"></section>
 
-        <div class="burgersSection">
-            <div class="mostSesslingDiv">
-                <p>MOST SELLING</p>
-                <p>MOST SELLING</p>
-            </div>
-            <div class="burgersCards" >
-                <div class="burgerCard" style="display: block;">
-
-                    <div class="burgerImageContainer">
-                        <div class="icons-navBar-Burger">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <img src="./assets/images/burger.jpeg" alt="">
-                    </div>
-
-                    <div class="priceAndRate">
-                        <label for="">150EGP</label>
-                        <div class="rate">
-                            <i class="fa-solid fa-star"></i>
-                            <p for="">4.5</p>
-                        </div>
-
-                    </div>
-                    <div class="lineDiv">
-                    </div>
-                    <div class="sandText">
-                        <p>Pork Chop with Apple Chutney</p>
-                    </div>
-
-                    <div class="sandwitchDesc">
-
-                        <div class="sandwitchDeatils">
-                            <i class="fa-regular fa-circle-check"></i>
-                            <p for="">4 Pieces</p>
-                        </div>
-                        <div class="sandwitchDeatils">
-                            <i class="fa-regular fa-circle-check"></i>
-                            <p for="">Spicy Sauce</p>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="AddFavBtn">Add To Cart</button>
-                    </div>
-                </div>   
-            </div>
+      <div class="burgersSection">
+        <div class="mostSesslingDiv">
+          <p>MOST SELLING</p>
+          <p>MOST SELLING</p>
         </div>
+        <div class="burgersCards">
+          <div class="burgerCard" style="display: block">
+            <div class="burgerImageContainer">
+              <div class="icons-navBar-Burger">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <img src="./assets/images/burger.jpeg" alt="" />
+            </div>
+
+            <div class="priceAndRate">
+              <label for="">150EGP</label>
+              <div class="rate">
+                <i class="fa-solid fa-star"></i>
+                <p for="">4.5</p>
+              </div>
+            </div>
+            <div class="lineDiv"></div>
+            <div class="sandText">
+              <p>Pork Chop with Apple Chutney</p>
+            </div>
+
+            <div class="sandwitchDesc">
+              <div class="sandwitchDeatils">
+                <i class="fa-regular fa-circle-check"></i>
+                <p for="">4 Pieces</p>
+              </div>
+              <div class="sandwitchDeatils">
+                <i class="fa-regular fa-circle-check"></i>
+                <p for="">Spicy Sauce</p>
+              </div>
+            </div>
+            <div>
+              <button class="AddFavBtn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="frame18" style="display: none;">
+        <h1>3 ITEMS IN CART</h1>
+        <div class="display">
+          <div class="nono">
+            <div class="mimi">
+              <div>
+                <img src="./assets/images/burger.jpeg" alt="" />
+                <p>PORK CHOP WITH APPLE CHUTNEY</p>
+                <p>150 EG</p>
+              </div>
+
+              <div class="fourpieces">
+                <p>FOUR PIECES SPICY SAUCE</p>
+                <div class="flexx">
+                  <div class="box">
+                    <p>-</p>
+                  </div>
+                  <div>
+                    <p>1</p>
+                  </div>
+                  <div class="box">
+                    <p>+</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="./Shop.js"></script>
-</body>
-
+  </body>
 </html>

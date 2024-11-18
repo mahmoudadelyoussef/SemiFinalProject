@@ -4,6 +4,6 @@
     "swiper": "^11.1.14"
   },
   "scripts": {
-    "start":"npx json-server db.json"
+    "start":"npx json-server --watch db.json"
   }
 }
