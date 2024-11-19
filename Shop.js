@@ -4,7 +4,10 @@ const catCls = document.querySelector(".catCls");
 const titleSection = document.querySelector(".titleSection");
 const burgersCards = document.querySelector(".burgersCards");
 const burgersSection = document.querySelector(".burgersSection");
-const frame18 = document.querySelector(".frame18");
+const cartParent = document.querySelector(".cartParent");
+const CartPart = document.querySelector(".CartPart");
+const finalPrice = document.querySelector(".finalPrice");
+
 async function getCat(myData) {
 
     if (localStorage.getItem("CatResults") == null) {
@@ -114,17 +117,17 @@ function addToCart(itemId, catID) {
     // document.querySelector(".cart-counter").textContent = cartCount;
     let localData = JSON.parse(localStorage.getItem("CatResults"));
     let clickedITem = localData.filter(f => f.id == catID)[0].details.filter(f => f.id == itemId)[0]
-     
-    localData.forEach((ele)=>{
-        ele.details.forEach((x)=>{
-            if(x == clickedITem){
+
+    localData.forEach((ele) => {
+        ele.details.forEach((x) => {
+            if (x == clickedITem) {
                 x.isAddedToCart = 1;
             }
-        
+
         })
-         
+
     })
-    localStorage.setItem("CatResults",JSON.stringify(localData))
+    localStorage.setItem("CatResults", JSON.stringify(localData))
     // localStorage.setItem("CatResults", JSON.stringify(
     //     JSON.parse(localStorage.getItem("CatResults")).
     //     filter(f => f.id == catID)[0].details.filter(f => f.id == itemId)[0].isAddedToCart =1))
@@ -144,19 +147,92 @@ function showCart() {
     //titleSection not ready
     //catCls ready
     const titleTxt = document.querySelector(".shopTitle p");
-    if (titleTxt.innerText == 'Home - Shop') {
-        titleTxt.innerText = 'Home - cart'
-        titleSection.style.display = "none"
-        catCls.style.display = "none"
-        burgersSection.style.display = "none"
+    let localData = localStorage.getItem("CartItems")
+    if (localData != null) {
+        let pasredData = JSON.parse(localData);
+        if (titleTxt.innerText == 'Home - Shop') {
+            titleTxt.innerText = 'Home - cart'
+            titleSection.style.display = "none"
+            catCls.style.display = "none"
+            burgersSection.style.display = "none"
 
-        frame18.style.display = "flex"
+            cartParent.style.display = "flex"
+        } else {
+            titleTxt.innerText = 'Home - Shop'
+            titleSection.style.display = "flex"
+            catCls.style.display = "flex"
+            burgersSection.style.display = "flex"
+            cartParent.style.display = "none"
+        }
+        CartPart.innerHTML = ''
+        pasredData.forEach((ele) => {
+            CartPart.innerHTML += `
+                 <div class="singleCart"  >
+              <div class="singleCartImag">
+                <img src='${ele.image}' alt="" />
+              </div>
+              <div class="singleCartData">
+                <p>${ele.title}</p>
+                <label>${ele.price} EGP</label>
+                <div class="lastRowCar">
+                  <p> ${ele.pieces} Pieces</p>
+                  <p>${ele.isSpicy ? 'Spicy' : 'Regular'} Sauce</p>
+                  <div class="addedBtn">
+                    <p onclick=dec(${ele.id},${ele.price})>-</p>
+                  </div>
+                  <div id='total-${ele.id}' >1</div>
+                  <div class="addedBtn">
+                    <p onclick=inc(${ele.id},${ele.price})>+</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `
+        })
+
+        let totalPrice = 0;
+        pasredData.forEach((ele) => {
+            totalPrice += ele.price
+        })
+        finalPrice.innerHTML = totalPrice + ' EGP'
+        sessionStorage.setItem("TotalPrice", totalPrice)
     } else {
-        titleTxt.innerText = 'Home - Shop'
-        titleSection.style.display = "flex"
-        catCls.style.display = "flex"
-        burgersSection.style.display = "flex"
-        frame18.style.display = "none"
+
+    }
+
+}
+
+function inc(id, price) {
+    let incEle = document.getElementById(`total-${id}`);
+    let incVal = parseInt(incEle.innerText);
+    incVal++;
+    incEle.innerHTML = incVal;
+    let finalPriceVal = Math.round(parseFloat(sessionStorage.getItem("TotalPrice")))
+
+    finalPriceVal += price
+    sessionStorage.setItem("TotalPrice", finalPriceVal)
+    finalPrice.innerHTML = finalPriceVal + ' EGP'
+}
+function dec(id, price) {
+    let incEle = document.getElementById(`total-${id}`);
+    let incVal = parseInt(incEle.innerText)
+    incVal--
+
+
+   
+    let finalPriceVal = Math.round(parseFloat(sessionStorage.getItem("TotalPrice")))
+    finalPriceVal -= price
+    if (incVal < 0)
+        return
+    else if(incVal == 0){
+        incEle.innerHTML = incVal;
+        sessionStorage.setItem("TotalPrice", finalPriceVal)
+        finalPrice.innerHTML = finalPriceVal + ' EGP'
+    }
+    else {
+        incEle.innerHTML = incVal;
+        sessionStorage.setItem("TotalPrice", finalPriceVal)
+        finalPrice.innerHTML = finalPriceVal + ' EGP'
     }
 
 }

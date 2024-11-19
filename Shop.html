@@ -25,24 +25,27 @@
           </h1>
           <ul>
             <li>
-                <a href="./Index.html">Home</a>
+              <a href="./Index.html">Home</a>
             </li>
             <li>
-                <a   href="./Shop.html">ABOUT</a>
+              <a href="./Shop.html">ABOUT</a>
             </li>
             <li>
-                <a class="active" href="./Shop.html">SHOP</a>
+              <a class="active" href="./Shop.html">SHOP</a>
             </li>
             <li>
-                <a href="./Contact.html">CONTACT US </a>
+              <a href="./Contact.html">CONTACT US </a>
             </li>
-        </ul>
+          </ul>
           <span class="desktop">
             <i class="fa-solid fa-bars"></i>
           </span>
           <div class="icons-navBar">
             <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping" onclick="showCart()"></i>
+            <i class="fa-solid fa-cart-shopping" ></i>
+            <i class="fa-solid fa-cart-shopping cart-icon" onclick="showCart()">
+              <span class="cart-counter">0</span>
+          </i>
           </div>
           <div class="closeList closeListIndex">
             <i class="fa-solid fa-xmark"></i>
@@ -103,30 +106,25 @@
         </div>
       </div>
 
-      <section class="frame18" style="display: none;">
+      <section class="cartParent" style="display: none">
         <h1>3 ITEMS IN CART</h1>
-        <div class="display">
-          <div class="nono">
-            <div class="mimi">
-              <div>
-                <img src="./assets/images/burger.jpeg" alt="" />
-                <p>PORK CHOP WITH APPLE CHUTNEY</p>
-                <p>150 EG</p>
-              </div>
-
-              <div class="fourpieces">
-                <p>FOUR PIECES SPICY SAUCE</p>
-                <div class="flexx">
-                  <div class="box">
-                    <p>-</p>
-                  </div>
-                  <div>
-                    <p>1</p>
-                  </div>
-                  <div class="box">
-                    <p>+</p>
-                  </div>
+        <div class="displayCartData">
+          <div class="CartPart"></div>
+          <div class="CheckOuttPart">
+            <div class="checkOutDiv">
+              <div class="dataDiv">
+                <div class="total">
+                  <p>Total</p>
+                  <p class="finalPrice">450</p> 
                 </div>
+                <div class="total">
+                  <p>Shipping</p>
+                  <p>Free</p>
+                </div>
+              </div>
+              <hr />
+              <div class="checkOutDivBTN">
+                <button>CheckOut</button>
               </div>
             </div>
           </div>
