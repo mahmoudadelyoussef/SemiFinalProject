@@ -1,4 +1,4 @@
-
+const PORT = 'http://localhost:3000/'
 const myList = document.body.querySelectorAll("ul li")
 const clostBtn = document.querySelector(".closeListIndex");
 myList.forEach((ele) => {
@@ -44,15 +44,21 @@ function removeActive() {
 //     });
 // }
 localStorage.removeItem("CartItems")
-let burgersObject = undefined;
+let burgersObject = [];
 function fetchData() {
-    fetch("http://localhost:3000/items").then(response => {
+    fetch(`${PORT}catergories`).then(response => {
         if (!response.ok) {
             throw new Error("Network response was not ok " + response.statusText);
         }
         return response.json();
     }).then(data => {
-        burgersObject = data;
+        debugger
+        data.forEach((ele)=> {
+            ele.details.forEach((x)=>{
+                burgersObject.push(x)
+            })
+        })
+ 
         burgersObject.forEach((element) => {
 
             let favStyle = `${element.isFavourite ? 'style="background-color: white;"' : 'style="display: none;"'} `;

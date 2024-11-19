@@ -1,4 +1,4 @@
-const PORT = 'http://localhost:3000'
+const PORT = 'http://localhost:3000/'
 
 const catCls = document.querySelector(".catCls");
 const titleSection = document.querySelector(".titleSection");
@@ -11,7 +11,7 @@ const finalPrice = document.querySelector(".finalPrice");
 async function getCat(myData) {
 
     if (localStorage.getItem("CatResults") == null) {
-        const res = await fetch(`${PORT}/catergories`);
+        const res = await fetch(`${PORT}catergories`);
         let result = await res.json();
 
         localStorage.setItem("CatResults", JSON.stringify(result))
@@ -89,7 +89,11 @@ async function getCat(myData) {
 
             })
         }
+
     });
+    if(localStorage.getItem("CartItems") != null)
+    document.querySelector(".cart-counter").textContent = JSON.parse( localStorage.getItem("CartItems")).length
+
 }
 
 getCat()
@@ -195,7 +199,9 @@ function showCart() {
             totalPrice += ele.price
         })
         finalPrice.innerHTML = totalPrice + ' EGP'
-        sessionStorage.setItem("TotalPrice", totalPrice)
+        localStorage.setItem("TotalPrice", totalPrice)
+
+
     } else {
 
     }
@@ -207,10 +213,10 @@ function inc(id, price) {
     let incVal = parseInt(incEle.innerText);
     incVal++;
     incEle.innerHTML = incVal;
-    let finalPriceVal = Math.round(parseFloat(sessionStorage.getItem("TotalPrice")))
+    let finalPriceVal = Math.round(parseFloat(localStorage.getItem("TotalPrice")))
 
     finalPriceVal += price
-    sessionStorage.setItem("TotalPrice", finalPriceVal)
+    localStorage.setItem("TotalPrice", finalPriceVal)
     finalPrice.innerHTML = finalPriceVal + ' EGP'
 }
 function dec(id, price) {
@@ -220,18 +226,18 @@ function dec(id, price) {
 
 
    
-    let finalPriceVal = Math.round(parseFloat(sessionStorage.getItem("TotalPrice")))
+    let finalPriceVal = Math.round(parseFloat(localStorage.getItem("TotalPrice")))
     finalPriceVal -= price
     if (incVal < 0)
         return
     else if(incVal == 0){
         incEle.innerHTML = incVal;
-        sessionStorage.setItem("TotalPrice", finalPriceVal)
+        localStorage.setItem("TotalPrice", finalPriceVal)
         finalPrice.innerHTML = finalPriceVal + ' EGP'
     }
     else {
         incEle.innerHTML = incVal;
-        sessionStorage.setItem("TotalPrice", finalPriceVal)
+        localStorage.setItem("TotalPrice", finalPriceVal)
         finalPrice.innerHTML = finalPriceVal + ' EGP'
     }
 
