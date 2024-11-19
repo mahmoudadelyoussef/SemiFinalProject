@@ -147,7 +147,7 @@ nav ul li:hover {
 }
 
 .bigContainer{
-    background-image: url(../images/burger.jpeg);
+    /* background-image: url(../images/burger.jpeg); */
     background-repeat: no-repeat;
     object-fit: cover;
     /* background-position: center; */

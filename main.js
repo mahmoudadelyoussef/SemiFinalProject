@@ -110,19 +110,20 @@ function fetchData() {
 fetchData();
 
 function addToCart(itemId) {
-    burgersObject[itemId-1].isAddedToCart = 1;
+    let clckedItem=  burgersObject.filter(f=>f.id == itemId)[0];
+    clckedItem.isAddedToCart = 1;
 
     document.getElementById(itemId).style.pointerEvents = "none";
     document.getElementById(itemId).style.opacity = "0.5";
-     const cartCount = burgersObject.filter(item => item.isAddedToCart === 1).length;
+     const cartCount = burgersObject.filter(item => item.isAddedToCart == 1).length;
 
     document.querySelector(".cart-counter").textContent = cartCount;
     let localData = localStorage.getItem("CartItems");
     if(localData == null){
-        localData =  [ burgersObject[itemId-1] ]
+        localData =  [ clckedItem ]
     }else{
         localData = JSON.parse(localData);
-        localData.push(burgersObject[itemId-1])
+        localData.push(clckedItem)
     }
     
     localStorage.setItem("CartItems",JSON.stringify(localData))

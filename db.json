@@ -81,7 +81,7 @@
   ],
   "catergories": [
     {
-      "isActive":1,
+      "isActive": 1,
       "id": 1,
       "title": "Vegetarian",
       "image": "./assets/images/burger.jpeg",
@@ -98,7 +98,7 @@
           "rate": 4,
           "pieces": 1,
           "isSpicy": false,
-          "isAddedToCart": 1
+          "isAddedToCart": 0
         },
         {
           "key": "veg",
@@ -111,12 +111,12 @@
           "rate": 5,
           "pieces": 2,
           "isSpicy": true,
-          "isAddedToCart": 1
+          "isAddedToCart": 0
         }
       ]
     },
     {
-      "isActive":0,
+      "isActive": 0,
       "id": 2,
       "title": "Meal",
       "image": "./assets/images/burger.jpeg",
@@ -151,7 +151,7 @@
       ]
     },
     {
-      "isActive":0,
+      "isActive": 0,
       "id": 3,
       "title": "Chicken",
       "image": "./assets/images/burger.jpeg",
@@ -173,7 +173,7 @@
       ]
     },
     {
-      "isActive":0,
+      "isActive": 0,
       "id": 4,
       "title": "Dubble",
       "image": "./assets/images/burger.jpeg",
